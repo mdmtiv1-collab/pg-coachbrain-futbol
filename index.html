@@ -541,9 +541,9 @@
             <h1 class="text-3xl sm:text-4xl font-black text-white mb-1.5">US$ 7,99</h1>
             <p class="text-[10px] sm:text-xs font-medium text-amber-400 mb-4 uppercase tracking-wider">PAGO ÚNICO</p>
             
-            <a href="https://pay.hotmart.com/F107034558A?off=c9oqe6pd&checkoutMode=10" onclick="openUpsellModal(); return false;" class="w-full min-h-[48px] inline-flex items-center justify-center px-4 py-3 text-xs sm:text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-xl transition duration-200 uppercase tracking-wider mb-2 active:scale-95 text-center cursor-pointer">
+            <button type="button" onclick="openUpsellModal()" class="w-full min-h-[48px] inline-flex items-center justify-center px-4 py-3 text-xs sm:text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-xl transition duration-200 uppercase tracking-wider mb-2 active:scale-95 text-center cursor-pointer">
               QUIERO EL PLAN BÁSICO
-            </a>
+            </button>
           </div>
         </div>
 
@@ -1003,10 +1003,10 @@
 
 
     // Upsell Modal Logic
-    const upsellModal = document.getElementById('upsell-modal');
-    const upsellCard = document.getElementById('upsell-modal-card');
-
     function openUpsellModal() {
+      const upsellModal = document.getElementById('upsell-modal');
+      const upsellCard = document.getElementById('upsell-modal-card');
+      if (!upsellModal || !upsellCard) return;
       upsellModal.classList.remove('hidden');
       setTimeout(() => {
         upsellModal.classList.remove('opacity-0');
@@ -1016,6 +1016,9 @@
     }
 
     function closeUpsellModal() {
+      const upsellModal = document.getElementById('upsell-modal');
+      const upsellCard = document.getElementById('upsell-modal-card');
+      if (!upsellModal || !upsellCard) return;
       upsellModal.classList.add('opacity-0');
       upsellCard.classList.remove('scale-100');
       upsellCard.classList.add('scale-95');
