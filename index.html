@@ -13,6 +13,11 @@
   <title>CoachBrain Fútbol - La sesión correcta para el equipo que tienes hoy</title>
   <meta name="description" content="CoachBrain Fútbol crea una sesión completa y personalizada según la edad, el nivel, el número de jugadores, el tiempo disponible, el objetivo, el espacio y los materiales que realmente tienes." />
   
+  <!-- Critical First-Fold Resource Preloading -->
+  <link rel="preload" as="image" href="./images/hero.jpg" fetchpriority="high" type="image/jpeg" />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,7 +139,7 @@
       <!-- Imagen o vídeo de demostración -->
       <div class="mb-8 sm:mb-10 max-w-4xl mx-auto glass-card rounded-2xl p-2 sm:p-4 shadow-glow-emerald relative group">
         <div class="relative rounded-xl overflow-hidden border border-gray-700/50 bg-gray-900 aspect-[16/9]">
-          <img src="./images/hero.jpg" alt="Demostración de CoachBrain Fútbol" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105" />
+          <img src="./images/hero.jpg" alt="Demostración de CoachBrain Fútbol" fetchpriority="high" loading="eager" decoding="async" width="1200" height="675" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105" />
         </div>
       </div>
 
