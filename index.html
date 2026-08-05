@@ -542,9 +542,9 @@
             <h1 class="text-3xl sm:text-4xl font-black text-white mb-1.5">US$ 7,99</h1>
             <p class="text-[10px] sm:text-xs font-medium text-amber-400 mb-4 uppercase tracking-wider">PAGO ÚNICO</p>
             
-            <button onclick="openUpsellModal()" class="w-full min-h-[48px] inline-flex items-center justify-center px-4 py-3 text-xs sm:text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-xl transition duration-200 uppercase tracking-wider mb-2 active:scale-95 text-center cursor-pointer">
+            <a href="https://pay.hotmart.com/F107034558A?off=c9oqe6pd&checkoutMode=10" class="w-full min-h-[48px] inline-flex items-center justify-center px-4 py-3 text-xs sm:text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-xl transition duration-200 uppercase tracking-wider mb-2 active:scale-95 text-center cursor-pointer">
               QUIERO EL PLAN BÁSICO
-            </button>
+            </a>
           </div>
         </div>
 
@@ -609,7 +609,7 @@
             <h1 class="text-4xl sm:text-5xl font-black gradient-text-gold mb-2">US$ 17,99</h1>
             <p class="text-[10px] sm:text-xs font-medium text-amber-300 mb-5 uppercase tracking-wider">PAGO ÚNICO</p>
             
-            <a href="#" class="w-full min-h-[52px] inline-flex items-center justify-center px-6 py-4 text-base sm:text-lg font-black text-gray-950 bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 rounded-xl shadow-glow-gold hover:opacity-95 active:scale-95 transition duration-200 uppercase tracking-wider text-center">
+            <a href="https://pay.hotmart.com/F107034558A?off=3ugh9t71&checkoutMode=10" class="w-full min-h-[52px] inline-flex items-center justify-center px-6 py-4 text-base sm:text-lg font-black text-gray-950 bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 rounded-xl shadow-glow-gold hover:opacity-95 active:scale-95 transition duration-200 uppercase tracking-wider text-center">
               QUIERO EL PLAN COMPLETO
             </a>
           </div>
@@ -885,12 +885,12 @@
       <!-- Action Buttons -->
       <div class="space-y-3">
         <!-- Upgrade Button -->
-        <a href="#" class="w-full min-h-[52px] inline-flex items-center justify-center px-6 py-4 text-sm sm:text-base font-black text-gray-950 bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 rounded-xl shadow-glow-gold hover:opacity-95 active:scale-95 transition uppercase tracking-wider text-center">
+        <a href="https://pay.hotmart.com/F107034558A?off=06k75tm6&checkoutMode=10" class="w-full min-h-[52px] inline-flex items-center justify-center px-6 py-4 text-sm sm:text-base font-black text-gray-950 bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 rounded-xl shadow-glow-gold hover:opacity-95 active:scale-95 transition uppercase tracking-wider text-center">
           SÍ, QUIERO EL PLAN COMPLETO POR US$ 10,99
         </a>
         
         <!-- Refuse upgrade button (Proceeds to basic plan checkout) -->
-        <a href="#" class="block text-xs text-gray-400 hover:text-gray-200 underline pt-2 transition">
+        <a href="https://pay.hotmart.com/F107034558A?off=c9oqe6pd&checkoutMode=10" class="block text-xs text-gray-400 hover:text-gray-200 underline pt-2 transition">
           No gracias, continuar únicamente con el Plan Básico por US$ 7,99
         </a>
       </div>
@@ -901,6 +901,22 @@
 
   <!-- JavaScript for Timer, Touch Carousel, Mobile Sticky CTA, and Upsell Modal -->
   <script>
+    // Automatic UTM Query Parameter Preservation on all Hotmart Checkout links
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.location.search) {
+        document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(link => {
+          try {
+            const url = new URL(link.href);
+            const currentParams = new URLSearchParams(window.location.search);
+            currentParams.forEach((value, key) => {
+              url.searchParams.set(key, value);
+            });
+            link.href = url.toString();
+          } catch (e) {}
+        });
+      }
+    });
+
     // 15-Minute Countdown Timer
     let totalSeconds = 15 * 60;
     const minElem = document.getElementById('timer-minutes');
