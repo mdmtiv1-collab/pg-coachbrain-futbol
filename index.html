@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>CoachBrain Fútbol - La sesión correcta para el equipo que tienes hoy</title>
+  <meta name="description" content="CoachBrain Fútbol crea una sesión completa y personalizada según la edad, el nivel, el número de jugadores, el tiempo disponible, el objetivo, el espacio y los materiales que realmente tienes." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+              950: '#022c22',
+            },
+            gold: {
+              300: '#fde047',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          },
+          boxShadow: {
+            'glow-emerald': '0 0 50px -10px rgba(16, 185, 129, 0.35)',
+            'glow-gold': '0 0 50px -10px rgba(245, 158, 11, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #070a12;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-accent {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(15, 23, 42, 0.9) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .gradient-text-emerald {
+      background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-text-gold {
+      background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .touch-pan-y {
+      touch-action: pan-y;
+    }
+    /* Modal Animation */
+    .modal-backdrop {
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- ==========================================
+       FAJA SUPERIOR DE URGENCIA
+  =========================================== -->
+  <div class="bg-gradient-to-r from-amber-600 via-gold-500 to-amber-600 text-gray-950 text-center py-2.5 px-4 font-black text-xs sm:text-sm tracking-wider uppercase shadow-md sticky top-0 z-40">
+    PARA ENTRENADORES DE FÚTBOL — OFERTA LIMITADA
+  </div>
+
+
+
+  <!-- ==========================================
+       HERO PRINCIPAL
+  =========================================== -->
+  <section class="relative pt-8 sm:pt-14 pb-14 sm:pb-20 overflow-hidden border-b border-gray-800/60">
+    <!-- Ambient Background Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-80 bg-brand-500/15 blur-3xl pointer-events-none rounded-full"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      
+      <!-- Headline -->
+      <h1 class="text-2xl sm:text-4xl md:text-6xl font-black text-white tracking-tight uppercase leading-tight sm:leading-tight mb-4 break-words">
+        NO NECESITAS OTRAS 500 SESIONES DE FÚTBOL
+      </h1>
+
+      <!-- Subheadline principal -->
+      <h2 class="text-lg sm:text-2xl md:text-3xl font-extrabold gradient-text-emerald mb-6 sm:mb-8 leading-snug">
+        Necesitas la sesión correcta para el equipo que tienes hoy
+      </h2>
+
+      <!-- Texto complementario -->
+      <p class="text-gray-300 text-sm sm:text-lg max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8">
+        CoachBrain Fútbol crea una sesión completa y personalizada según la edad, el nivel, el número de jugadores, el tiempo disponible, el objetivo del entrenamiento, el espacio y los materiales que realmente tienes.
+      </p>
+
+
+
+      <!-- Imagen o vídeo de demostración -->
+      <div class="mb-8 sm:mb-10 max-w-4xl mx-auto glass-card rounded-2xl p-2 sm:p-4 shadow-glow-emerald relative group">
+        <div class="relative rounded-xl overflow-hidden border border-gray-700/50 bg-gray-900 aspect-[16/9]">
+          <img src="./images/hero.jpg" alt="Demostración de CoachBrain Fútbol" class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105" />
+        </div>
+      </div>
+
+      <!-- Botón principal -->
+      <div class="flex flex-col items-center w-full">
+        <a href="#planes" class="w-full sm:w-auto min-h-[56px] inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 text-base sm:text-xl font-black text-gray-950 bg-gradient-to-r from-brand-400 via-brand-500 to-emerald-400 rounded-xl shadow-lg hover:shadow-glow-emerald active:scale-95 transition duration-200 uppercase tracking-wider text-center">
+          QUIERO CREAR MI PRÓXIMA SESIÓN
+        </a>
+        <p class="text-xs sm:text-sm text-gray-400 mt-4 font-medium flex flex-wrap justify-center items-center gap-x-2 gap-y-1 text-center">
+          <span>Acceso inmediato</span> · <span>100% online</span> · <span>7 días de garantía</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       QUÉ RECIBIRÁ EL CLIENTE
+  =========================================== -->
+  <section class="py-12 sm:py-20 border-b border-gray-800/60 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <!-- Título -->
+      <div class="text-center mb-10 sm:mb-16">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-4 sm:mb-6">
+          Transforma las condiciones reales de tu equipo en una sesión completa y organizada
+        </h1>
+        <!-- Texto introductorio -->
+        <p class="text-gray-300 text-sm sm:text-lg max-w-3xl mx-auto leading-relaxed">
+          Al acceder a CoachBrain Fútbol, recibirás una herramienta de planificación creada para ayudarte a preparar entrenamientos adaptados a la realidad que encuentras cada día en el campo.
+        </p>
+      </div>
+
+      <!-- Grid de características -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- Bloque 1 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 hover:border-brand-500/40 transition duration-300">
+          <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">Sesiones creadas para tu equipo</h2>
+          <p class="text-gray-300 text-xs sm:text-sm font-semibold mb-3">
+            Indica las principales características de tu entrenamiento:
+          </p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-gray-200 text-xs sm:text-sm mb-5">
+            <li class="flex items-center gap-2 bg-gray-900/60 p-2.5 rounded-lg border border-gray-800"><span class="text-brand-400 font-bold">✓</span> Categoría y edad.</li>
+            <li class="flex items-center gap-2 bg-gray-900/60 p-2.5 rounded-lg border border-gray-800"><span class="text-brand-400 font-bold">✓</span> Nivel de los jugadores.</li>
+            <li class="flex items-center gap-2 bg-gray-900/60 p-2.5 rounded-lg border border-gray-800"><span class="text-brand-400 font-bold">✓</span> Número de participantes.</li>
+            <li class="flex items-center gap-2 bg-gray-900/60 p-2.5 rounded-lg border border-gray-800"><span class="text-brand-400 font-bold">✓</span> Duración de la sesión.</li>
+            <li class="flex items-center gap-2 bg-gray-900/60 p-2.5 rounded-lg border border-gray-800"><span class="text-brand-400 font-bold">✓</span> Objetivo técnico o táctico.</li>
+            <li class="flex items-center gap-2 bg-gray-900/60 p-2.5 rounded-lg border border-gray-800"><span class="text-brand-400 font-bold">✓</span> Espacio disponible.</li>
+            <li class="flex items-center gap-2 bg-gray-900/60 p-2.5 rounded-lg border border-gray-800 col-span-1 sm:col-span-2"><span class="text-brand-400 font-bold">✓</span> Materiales que tienes.</li>
+          </ul>
+          <p class="text-brand-400 font-semibold text-xs sm:text-sm leading-relaxed">
+            CoachBrain utiliza esa información para crear una sesión relacionada con las condiciones que has informado.
+          </p>
+        </div>
+
+        <!-- Bloque 2 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 hover:border-brand-500/40 transition duration-300">
+          <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">Una planificación completa</h2>
+          <p class="text-gray-300 text-xs sm:text-sm font-semibold mb-3">Cada sesión puede estar organizada con:</p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-300 text-xs sm:text-sm mb-5">
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Activación y calentamiento.</li>
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Trabajo técnico.</li>
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Trabajo táctico.</li>
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Tarea principal.</li>
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Progresiones.</li>
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Juego condicionado.</li>
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Vuelta a la calma.</li>
+            <li class="flex items-center gap-2"><span class="text-brand-400 font-bold">✓</span> Orientaciones para la aplicación.</li>
+          </ul>
+          <div class="pt-4 border-t border-gray-800 text-xs sm:text-sm text-gray-300 space-y-2">
+            <p class="text-amber-300 font-semibold">No recibirás solamente una lista de ejercicios aislados.</p>
+            <p class="text-white font-semibold">Recibirás una planificación organizada para comprender qué trabajar, en qué orden desarrollar las tareas y cuánto tiempo dedicar a cada etapa.</p>
+          </div>
+        </div>
+
+        <!-- Bloque 3 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 hover:border-brand-500/40 transition duration-300">
+          <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">Adaptación a los cambios del entrenamiento</h2>
+          <div class="space-y-2 text-amber-300 font-medium mb-4 text-xs sm:text-base">
+            <p class="flex items-center gap-2"><span class="text-brand-400">❓</span> “¿Faltaron jugadores?”</p>
+            <p class="flex items-center gap-2"><span class="text-brand-400">❓</span> “¿Tienes menos tiempo de lo previsto?”</p>
+            <p class="flex items-center gap-2"><span class="text-brand-400">❓</span> “¿Solamente puedes utilizar una parte del campo?”</p>
+            <p class="flex items-center gap-2"><span class="text-brand-400">❓</span> “¿No cuentas con todos los materiales?”</p>
+          </div>
+          <p class="text-gray-300 text-xs sm:text-base leading-relaxed">
+            Modifica las condiciones y crea una nueva planificación adaptada a la situación.
+          </p>
+        </div>
+
+        <!-- Bloque 4 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 hover:border-brand-500/40 transition duration-300">
+          <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">Acceso online desde cualquier dispositivo</h2>
+          <p class="text-gray-300 text-xs sm:text-base mb-3 leading-relaxed">
+            Utiliza CoachBrain Fútbol desde tu móvil, tablet u ordenador.
+          </p>
+          <p class="text-gray-300 text-xs sm:text-base mb-3 leading-relaxed">
+            No necesitas instalar programas ni descargar cientos de archivos.
+          </p>
+          <p class="text-brand-400 font-semibold text-xs sm:text-base leading-relaxed">
+            Entra en la plataforma, informa lo que necesitas y crea tu sesión.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       POR QUÉ ELEGIR COACHBRAIN FÚTBOL
+  =========================================== -->
+  <section class="py-12 sm:py-20 border-b border-gray-800/60 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-10 sm:mb-12">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-4 sm:mb-6">
+          Porque tener más ejercicios no significa planificar mejor
+        </h1>
+        <p class="text-gray-300 text-sm sm:text-lg max-w-3xl mx-auto leading-relaxed mb-4">
+          Internet ya está llena de vídeos, PDFs y bibliotecas con cientos de ejercicios y sesiones de fútbol.
+        </p>
+      </div>
+
+      <!-- Problem Breakdown Box -->
+      <div class="glass-card rounded-2xl p-5 sm:p-8 mb-12 sm:mb-16 border-amber-500/30">
+        <p class="text-amber-400 font-bold text-base sm:text-lg mb-4">Pero una sesión genérica no sabe:</p>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-200 text-xs sm:text-sm mb-6">
+          <li class="flex items-start gap-2.5 bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-amber-400 font-bold">✕</span> <span>Cuántos jugadores asistirán hoy.</span>
+          </li>
+          <li class="flex items-start gap-2.5 bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-amber-400 font-bold">✕</span> <span>Qué edad tiene tu equipo.</span>
+          </li>
+          <li class="flex items-start gap-2.5 bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-amber-400 font-bold">✕</span> <span>Cuál es el nivel del grupo.</span>
+          </li>
+          <li class="flex items-start gap-2.5 bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-amber-400 font-bold">✕</span> <span>Cuánto tiempo tienes disponible.</span>
+          </li>
+          <li class="flex items-start gap-2.5 bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-amber-400 font-bold">✕</span> <span>Qué objetivo necesitas desarrollar.</span>
+          </li>
+          <li class="flex items-start gap-2.5 bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+            <span class="text-amber-400 font-bold">✕</span> <span>Qué espacio podrás utilizar.</span>
+          </li>
+          <li class="flex items-start gap-2.5 bg-gray-900/60 p-3 rounded-xl border border-gray-800 col-span-1 md:col-span-2">
+            <span class="text-amber-400 font-bold">✕</span> <span>Qué materiales tienes en ese momento.</span>
+          </li>
+        </ul>
+        <div class="text-gray-300 text-xs sm:text-base space-y-2 pt-4 border-t border-gray-800">
+          <p>Por eso, el verdadero problema no es encontrar otro ejercicio.</p>
+          <p class="text-white font-bold text-sm sm:text-lg">El problema es decidir cuál utilizar, cómo organizarlo, cuánto tiempo dedicarle y cómo adaptarlo a tu grupo.</p>
+        </div>
+      </div>
+
+      <h2 class="text-xl sm:text-3xl font-extrabold text-white text-center mb-8 sm:mb-10">
+        CoachBrain Fútbol te ayuda a:
+      </h2>
+
+      <!-- Bloques visuales de beneficios -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12 sm:mb-16">
+        
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border-t-2 border-t-brand-500">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Ahorrar tiempo en la planificación</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Reduce el tiempo que pasas buscando ejercicios, comparando materiales e intentando organizar una sesión desde una página en blanco.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border-t-2 border-t-brand-500">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Planificar de acuerdo con tu realidad</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Crea sesiones considerando las condiciones reales del entrenamiento, en lugar de intentar adaptar una planificación genérica a cualquier situación.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border-t-2 border-t-brand-500">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Llegar al campo con una dirección clara</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Visualiza las diferentes etapas de la sesión y comprende qué objetivo será trabajado en cada momento.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border-t-2 border-t-brand-500">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Adaptarte a los cambios de última hora</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Cuando cambie el número de jugadores, el tiempo, el espacio o los materiales, podrás crear una nueva planificación sin rehacer todo manualmente.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border-t-2 border-t-brand-500">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Evitar repetir siempre los mismos entrenamientos</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Introduce nuevos objetivos y condiciones para crear diferentes posibilidades de sesión durante la semana.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 border-t-2 border-t-brand-500">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Mantener tu criterio como entrenador</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-2">
+            CoachBrain no sustituye tu experiencia.
+          </p>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            La herramienta te ayuda a organizar la planificación, pero tú continúas tomando las decisiones, realizando las correcciones y conduciendo al equipo.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Frases destacadas finales -->
+      <div class="glass-card-accent rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto shadow-glow-emerald">
+        <h3 class="text-base sm:text-2xl font-bold text-gray-300 line-through mb-3 leading-snug">
+          No necesitas acumular otras 500 sesiones que quizá nunca utilizarás.
+        </h3>
+        <h3 class="text-lg sm:text-3xl font-black gradient-text-emerald leading-tight">
+          Necesitas crear la sesión correcta para el equipo que tienes hoy.
+        </h3>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       BONOS DEL PLAN COMPLETO
+  =========================================== -->
+  <section class="py-12 sm:py-20 border-b border-gray-800/60 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-10 sm:mb-16">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-4">
+          Accede hoy y recibe también estos 3 bonos exclusivos
+        </h1>
+      </div>
+
+      <!-- Tres tarjetas visuales para los bonos -->
+      <div class="space-y-6 sm:space-y-8 mb-10 sm:mb-12">
+        
+        <!-- Primera tarjeta -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border-l-4 border-l-gold-500 relative overflow-hidden">
+          <div class="inline-block bg-gold-500/20 text-gold-400 font-bold text-[10px] sm:text-xs uppercase px-3 py-1 rounded-full border border-gold-500/40 mb-3">
+            BONO EXCLUSIVO #1
+          </div>
+          <h2 class="text-xl sm:text-3xl font-black text-white mb-3 gradient-text-gold">
+            BONO 1 — GUÍA DE INICIO RÁPIDO COACHBRAIN
+          </h2>
+          <p class="text-gray-300 text-xs sm:text-base leading-relaxed mb-3">
+            Un recorrido práctico para ayudarte a comprender la plataforma y crear tu primera sesión sin complicaciones.
+          </p>
+          <p class="text-gray-300 text-xs sm:text-base leading-relaxed mb-4">
+            Descubrirás cómo informar correctamente las características del equipo, seleccionar el objetivo del entrenamiento y aprovechar mejor cada planificación.
+          </p>
+          <p class="text-brand-400 font-bold text-xs sm:text-base">
+            Ideal para comenzar a utilizar CoachBrain desde el primer acceso.
+          </p>
+        </div>
+
+        <!-- Segunda tarjeta -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border-l-4 border-l-gold-500 relative overflow-hidden">
+          <div class="inline-block bg-gold-500/20 text-gold-400 font-bold text-[10px] sm:text-xs uppercase px-3 py-1 rounded-full border border-gold-500/40 mb-3">
+            BONO EXCLUSIVO #2
+          </div>
+          <h2 class="text-xl sm:text-3xl font-black text-white mb-3 gradient-text-gold">
+            BONO 2 — MAPA DE OBJETIVOS POR EDAD Y NIVEL
+          </h2>
+          <p class="text-gray-300 text-xs sm:text-base leading-relaxed mb-3">
+            Una guía con ideas de objetivos técnicos, tácticos y coordinativos organizados de acuerdo con diferentes edades y niveles.
+          </p>
+          <p class="text-gray-300 text-xs sm:text-base leading-relaxed mb-4">
+            Utilízala cuando necesites decidir qué contenido trabajar con tu equipo y qué objetivo introducir en CoachBrain.
+          </p>
+          <p class="text-brand-400 font-bold text-xs sm:text-base">
+            Ideal para ampliar tus posibilidades de planificación sin depender de ejercicios aleatorios.
+          </p>
+        </div>
+
+        <!-- Tercera tarjeta -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border-l-4 border-l-gold-500 relative overflow-hidden">
+          <div class="inline-block bg-gold-500/20 text-gold-400 font-bold text-[10px] sm:text-xs uppercase px-3 py-1 rounded-full border border-gold-500/40 mb-3">
+            BONO EXCLUSIVO #3
+          </div>
+          <h2 class="text-xl sm:text-3xl font-black text-white mb-3 gradient-text-gold">
+            BONO 3 — KIT DE ADAPTACIÓN PARA DÍAS COMPLICADOS
+          </h2>
+          <p class="text-gray-300 text-xs sm:text-base leading-relaxed mb-4">
+            Un material práctico para ayudarte a organizar tus sesiones en situaciones como:
+          </p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-300 mb-5 text-xs sm:text-sm">
+            <li class="flex items-center gap-2"><span class="text-gold-400 font-bold">•</span> Pocos jugadores.</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400 font-bold">•</span> Espacio reducido.</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400 font-bold">•</span> Tiempo limitado.</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400 font-bold">•</span> Falta de materiales.</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400 font-bold">•</span> Diferentes niveles dentro del grupo.</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400 font-bold">•</span> Cambios de última hora.</li>
+          </ul>
+          <p class="text-brand-400 font-bold text-xs sm:text-base">
+            Ideal para evitar que un imprevisto destruya toda tu planificación.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       OFERTA CON TEMPORIZADOR Y DOS PLANES
+  =========================================== -->
+  <section id="planes" class="py-12 sm:py-20 border-b border-gray-800/60 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+
+
+      <!-- Temporizador visual de 15 minutos -->
+      <div class="glass-card rounded-2xl p-5 sm:p-8 max-w-xl mx-auto text-center mb-10 sm:mb-14 border border-amber-500/40 shadow-glow-gold">
+        <p class="text-amber-400 font-extrabold text-[11px] sm:text-xs tracking-wider uppercase mb-3 leading-snug">
+          ESTA CONDICIÓN ESPECIAL ESTARÁ DISPONIBLE DURANTE LOS PRÓXIMOS:
+        </p>
+        <div class="flex justify-center items-center gap-3 my-1">
+          <div class="bg-gray-950 border border-amber-500/40 rounded-xl p-3 sm:p-4 min-w-[75px] sm:min-w-[90px]">
+            <span id="timer-minutes" class="text-3xl sm:text-6xl font-black text-amber-400 tracking-tight">15</span>
+            <span class="block text-[10px] sm:text-xs uppercase text-gray-400 mt-1 font-bold">Minutos</span>
+          </div>
+          <span class="text-3xl sm:text-4xl font-bold text-amber-500">:</span>
+          <div class="bg-gray-950 border border-amber-500/40 rounded-xl p-3 sm:p-4 min-w-[75px] sm:min-w-[90px]">
+            <span id="timer-seconds" class="text-3xl sm:text-6xl font-black text-amber-400 tracking-tight">00</span>
+            <span class="block text-[10px] sm:text-xs uppercase text-gray-400 mt-1 font-bold">Segundos</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-xl sm:text-3xl font-extrabold text-white text-center mb-8 sm:mb-12">
+        Elige el plan ideal para ti
+      </h2>
+
+      <!-- Dos tarjetas de oferta lado a lado -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- TARJETA DEL PLAN BÁSICO -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-gray-700/60 hover:border-gray-500 transition duration-300">
+          <div>
+            <div class="mb-6 border-b border-gray-800 pb-6">
+              <h2 class="text-2xl sm:text-3xl font-black text-white mb-2">PLAN BÁSICO</h2>
+              <p class="text-xs sm:text-sm font-bold text-brand-400 mb-2">Acceso esencial a CoachBrain Fútbol</p>
+              <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                Para entrenadores que desean acceder únicamente a la herramienta de planificación.
+              </p>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-xs sm:text-sm font-bold text-gray-200 uppercase tracking-wider mb-3">Recibirás:</h3>
+              <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Acceso a CoachBrain Fútbol.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Creación de sesiones personalizadas.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Planificación según categoría, edad y nivel.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Adaptación según el número de jugadores.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Organización según el tiempo disponible.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Selección del objetivo del entrenamiento.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Consideración del espacio disponible.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Consideración de los materiales disponibles.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Acceso desde móvil, tablet y ordenador.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Garantía incondicional de 7 días.</span></li>
+              </ul>
+            </div>
+
+            <div class="mb-6 pt-4 border-t border-gray-800">
+              <h3 class="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">No incluidos en el Plan Básico:</h3>
+              <ul class="space-y-1.5 text-xs text-gray-500 line-through">
+                <li>Bono 1 — Guía de Inicio Rápido CoachBrain.</li>
+                <li>Bono 2 — Mapa de Objetivos por Edad y Nivel.</li>
+                <li>Bono 3 — Kit de Adaptación para Días Complicados.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Precio y Botón (Abre Popup de Upsell a US$ 10,99) -->
+          <div class="pt-6 border-t border-gray-800 text-center">
+            <p class="text-xs sm:text-sm font-semibold text-gray-400 mb-1">Plan Básico por solamente:</p>
+            <h1 class="text-4xl sm:text-5xl font-black text-white mb-2">US$ 7,99</h1>
+            <p class="text-[10px] sm:text-xs font-medium text-amber-400 mb-5 uppercase tracking-wider">PAGO ÚNICO</p>
+            
+            <button onclick="openUpsellModal()" class="w-full min-h-[52px] inline-flex items-center justify-center px-5 py-3.5 text-sm sm:text-base font-extrabold text-white bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-xl transition duration-200 uppercase tracking-wider mb-3 active:scale-95 text-center cursor-pointer">
+              QUIERO EL PLAN BÁSICO
+            </button>
+          </div>
+        </div>
+
+        <!-- TARJETA DEL PLAN COMPLETO -->
+        <div class="glass-card-accent rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative shadow-glow-emerald border-2 border-brand-500 mt-4 lg:mt-0">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-400 via-amber-500 to-gold-500 text-gray-950 font-black text-[10px] sm:text-xs uppercase px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
+            OPCIÓN MÁS COMPLETA
+          </div>
+
+          <div>
+            <div class="mb-6 border-b border-brand-500/20 pb-6 pt-2">
+              <h2 class="text-2xl sm:text-3xl font-black text-white mb-2">PLAN COMPLETO</h2>
+              <p class="text-xs sm:text-sm font-bold text-brand-300 mb-2">La experiencia completa para planificar con más claridad y seguridad</p>
+              <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                Para entrenadores que desean acceder a CoachBrain Fútbol y recibir todos los materiales complementarios.
+              </p>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-xs sm:text-sm font-bold text-gray-200 uppercase tracking-wider mb-3">Recibirás:</h3>
+              <ul class="space-y-2 text-xs sm:text-sm text-gray-300 mb-6">
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Acceso a CoachBrain Fútbol.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Creación de sesiones personalizadas.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Planificación según categoría, edad y nivel.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Adaptación según el número de jugadores.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Organización según el tiempo disponible.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Selección del objetivo del entrenamiento.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Consideración del espacio disponible.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Consideración de los materiales disponibles.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Acceso desde móvil, tablet y ordenador.</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-400 font-bold">✓</span> <span>Garantía incondicional de 7 días.</span></li>
+              </ul>
+            </div>
+
+            <div class="mb-6 space-y-3 pt-4 border-t border-brand-500/20">
+              <p class="text-xs font-black text-amber-300 uppercase tracking-wider mb-2">Además, recibirás los 3 bonos exclusivos:</p>
+              
+              <div class="bg-gray-900/90 p-3.5 rounded-xl border border-gold-500/30">
+                <h4 class="text-xs font-extrabold text-gold-400 mb-1">BONO 1 — GUÍA DE INICIO RÁPIDO COACHBRAIN</h4>
+                <p class="text-[11px] text-gray-300">Un recorrido práctico para ayudarte a utilizar la plataforma y crear tu primera sesión sin complicaciones.</p>
+              </div>
+
+              <div class="bg-gray-900/90 p-3.5 rounded-xl border border-gold-500/30">
+                <h4 class="text-xs font-extrabold text-gold-400 mb-1">BONO 2 — MAPA DE OBJETIVOS POR EDAD Y NIVEL</h4>
+                <p class="text-[11px] text-gray-300">Una guía con ideas de objetivos técnicos, tácticos y coordinativos para diferentes edades y niveles.</p>
+              </div>
+
+              <div class="bg-gray-900/90 p-3.5 rounded-xl border border-gold-500/30">
+                <h4 class="text-xs font-extrabold text-gold-400 mb-1">BONO 3 — KIT DE ADAPTACIÓN PARA DÍAS COMPLICADOS</h4>
+                <p class="text-[11px] text-gray-300">Un material para ayudarte a adaptar tus sesiones cuando tengas pocos jugadores, espacio reducido, tiempo limitado o materiales insuficientes.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-brand-500/30 text-center">
+            <p class="text-xs sm:text-sm font-semibold text-gray-300 mb-1">Plan Completo por solamente:</p>
+            <h1 class="text-4xl sm:text-5xl font-black gradient-text-gold mb-2">US$ 17,99</h1>
+            <p class="text-[10px] sm:text-xs font-medium text-amber-300 mb-5 uppercase tracking-wider">PAGO ÚNICO</p>
+            
+            <a href="#" class="w-full min-h-[52px] inline-flex items-center justify-center px-6 py-4 text-base sm:text-lg font-black text-gray-950 bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 rounded-xl shadow-glow-gold hover:opacity-95 active:scale-95 transition duration-200 uppercase tracking-wider text-center">
+              QUIERO EL PLAN COMPLETO
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       EJEMPLOS DE COACHBRAIN EN UN CARRUSEL
+  =========================================== -->
+  <section class="py-12 sm:py-20 border-b border-gray-800/60 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-8 sm:mb-12">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-4">
+          Mira cómo CoachBrain transforma tu realidad en una sesión organizada
+        </h1>
+        <p class="text-xs text-gray-400 sm:hidden flex items-center justify-center gap-1">
+          <span>👈 Desliza con el dedo para ver las 5 fotos 👉</span>
+        </p>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto">
+        <div class="overflow-hidden rounded-2xl glass-card border border-gray-700/80 shadow-2xl touch-pan-y" id="carousel-viewport">
+          
+          <div id="carousel-slides" class="flex transition-transform duration-300 ease-out">
+            
+            <div class="w-full flex-shrink-0 p-3 sm:p-6">
+              <div class="bg-gray-950 rounded-xl overflow-hidden border border-gray-800 mb-4 aspect-[16/10] sm:aspect-[16/9]">
+                <img src="./images/foto1.jpg" alt="Describe la realidad de tu entrenamiento" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="text-center">
+                <blockquote class="text-base sm:text-xl font-bold text-amber-300 italic">
+                  “Describe la realidad de tu entrenamiento”
+                </blockquote>
+              </div>
+            </div>
+
+            <div class="w-full flex-shrink-0 p-3 sm:p-6">
+              <div class="bg-gray-950 rounded-xl overflow-hidden border border-gray-800 mb-4 aspect-[16/10] sm:aspect-[16/9]">
+                <img src="./images/foto2.jpg" alt="Recibe una planificación completa y organizada" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="text-center">
+                <blockquote class="text-base sm:text-xl font-bold text-amber-300 italic">
+                  “Recibe una planificación completa y organizada”
+                </blockquote>
+              </div>
+            </div>
+
+            <div class="w-full flex-shrink-0 p-3 sm:p-6">
+              <div class="bg-gray-950 rounded-xl overflow-hidden border border-gray-800 mb-4 aspect-[16/10] sm:aspect-[16/9]">
+                <img src="./images/foto3.jpg" alt="Comprende qué hacer, cómo organizarlo y qué observar" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="text-center">
+                <blockquote class="text-base sm:text-xl font-bold text-amber-300 italic">
+                  “Comprende qué hacer, cómo organizarlo y qué observar”
+                </blockquote>
+              </div>
+            </div>
+
+            <div class="w-full flex-shrink-0 p-3 sm:p-6">
+              <div class="bg-gray-950 rounded-xl overflow-hidden border border-gray-800 mb-4 aspect-[16/10] sm:aspect-[16/9]">
+                <img src="./images/foto4.jpg" alt="Cambia las condiciones y crea una nueva versión" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="text-center">
+                <blockquote class="text-base sm:text-xl font-bold text-amber-300 italic">
+                  “Cambia las condiciones y crea una nueva versión”
+                </blockquote>
+              </div>
+            </div>
+
+            <div class="w-full flex-shrink-0 p-3 sm:p-6">
+              <div class="bg-gray-950 rounded-xl overflow-hidden border border-gray-800 mb-4 aspect-[16/10] sm:aspect-[16/9]">
+                <img src="./images/foto5.jpg" alt="Consulta tu planificación desde cualquier lugar" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="text-center">
+                <blockquote class="text-base sm:text-xl font-bold text-amber-300 italic">
+                  “Consulta tu planificación desde cualquier lugar”
+                </blockquote>
+              </div>
+            </div>
+
+          </div>
+
+          <button id="carousel-prev" aria-label="Anterior" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-gray-950/80 hover:bg-gray-900 border border-gray-700 text-white rounded-full flex items-center justify-center shadow-lg backdrop-blur-md transition active:scale-90">
+            &#10094;
+          </button>
+          <button id="carousel-next" aria-label="Siguiente" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-gray-950/80 hover:bg-gray-900 border border-gray-700 text-white rounded-full flex items-center justify-center shadow-lg backdrop-blur-md transition active:scale-90">
+            &#10095;
+          </button>
+
+          <div id="carousel-dots" class="flex justify-center items-center gap-2 py-3 bg-gray-950/60 border-t border-gray-800/80">
+            <button class="w-3 h-3 rounded-full bg-brand-500 transition-all" onclick="goToSlide(0)"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 transition-all" onclick="goToSlide(1)"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 transition-all" onclick="goToSlide(2)"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 transition-all" onclick="goToSlide(3)"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 transition-all" onclick="goToSlide(4)"></button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       TESTIMONIOS
+  =========================================== -->
+  <section class="py-12 sm:py-20 border-b border-gray-800/60 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-10 sm:mb-16">
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-4">
+          Lo que dicen los entrenadores que ya utilizaron CoachBrain Fútbol
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div class="mb-4">
+            <blockquote class="text-gray-300 text-xs sm:text-sm italic leading-relaxed">
+              “Antes tardaba casi una hora buscando ejercicios y tratando de organizarlos en una sesión coherente. Con CoachBrain preparé un entrenamiento de 75 minutos para 14 jugadores, enfocado en presión tras pérdida, y recibí toda la sesión dividida por etapas. Lo que más me gustó fue no tener que empezar desde cero y poder llegar al campo con una idea clara de qué trabajar.”
+            </blockquote>
+          </div>
+          <div class="pt-3 border-t border-gray-800">
+            <p class="text-white font-bold text-xs sm:text-sm">Daniel Herrera</p>
+            <p class="text-[11px] text-gray-400">Entrenador Sub-13</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div class="mb-4">
+            <blockquote class="text-gray-300 text-xs sm:text-sm italic leading-relaxed">
+              “Había planificado una sesión para 18 jugadores, pero el día del entrenamiento solamente llegaron 11. Cambié el número de participantes, el espacio disponible y el tiempo de la sesión dentro de CoachBrain, y pude reorganizar el entrenamiento en pocos minutos. Antes habría tenido que improvisar casi todo en el campo.”
+            </blockquote>
+          </div>
+          <div class="pt-3 border-t border-gray-800">
+            <p class="text-white font-bold text-xs sm:text-sm">Miguel Santos</p>
+            <p class="text-[11px] text-gray-400">Entrenador de academia infantil</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div class="mb-4">
+            <blockquote class="text-gray-300 text-xs sm:text-sm italic leading-relaxed">
+              “Trabajo con niños de diferentes niveles y muchas sesiones que encuentro en internet son demasiado avanzadas o necesitan más espacio del que tengo. En CoachBrain indiqué que entrenaba una categoría Sub-10, con 12 jugadores, medio campo y pocos materiales. La sesión salió mucho más cercana a mi realidad y pude ajustar las tareas antes de aplicarlas.”
+            </blockquote>
+          </div>
+          <div class="pt-3 border-t border-gray-800">
+            <p class="text-white font-bold text-xs sm:text-sm">Alejandro Ruiz</p>
+            <p class="text-[11px] text-gray-400">Entrenador Sub-10</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       GARANTÍA
+  =========================================== -->
+  <section class="py-12 sm:py-20 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="glass-card-accent rounded-3xl p-6 sm:p-12 text-center border-2 border-brand-500 shadow-glow-emerald">
+        
+        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-brand-500/20 border-2 border-brand-400 rounded-full flex items-center justify-center text-brand-400 mx-auto mb-5 text-2xl sm:text-3xl font-black shadow-lg">
+          7
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
+          Prueba CoachBrain Fútbol durante 7 días sin riesgo
+        </h1>
+
+        <div class="space-y-3.5 text-gray-300 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8">
+          <p>
+            Tanto el Plan Básico como el Plan Completo están protegidos por una garantía incondicional de 7 días.
+          </p>
+          <p>
+            Después de realizar tu compra, recibirás acceso a CoachBrain Fútbol y a todos los contenidos incluidos en el plan que hayas elegido.
+          </p>
+          
+          <div class="py-3 border-y border-brand-500/30 text-white font-semibold space-y-1 text-xs sm:text-base">
+            <p>Entra en la plataforma.</p>
+            <p>Informa las características de tu equipo.</p>
+            <p>Crea tus primeras sesiones.</p>
+            <p>Comprueba cómo CoachBrain puede ayudarte a organizar tus objetivos y reducir el tiempo dedicado a la planificación.</p>
+          </div>
+
+          <p>
+            Si dentro de los primeros 7 días decides que CoachBrain Fútbol no es adecuado para ti, podrás solicitar el reembolso total de tu compra.
+          </p>
+
+          <p class="text-amber-400 font-bold text-base sm:text-xl pt-1">
+            Sin riesgo. Sin complicaciones.
+          </p>
+        </div>
+
+        <h2 class="text-lg sm:text-2xl font-extrabold text-white mb-6 sm:mb-8 leading-snug">
+          Tienes 7 días completos para probar la herramienta y tomar tu decisión
+        </h2>
+
+        <div class="flex flex-col items-center w-full">
+          <a href="#planes" class="w-full sm:w-auto min-h-[52px] inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 text-base sm:text-xl font-black text-gray-950 bg-gradient-to-r from-brand-400 via-brand-500 to-emerald-400 rounded-xl shadow-lg hover:shadow-glow-emerald active:scale-95 transition duration-200 uppercase tracking-wider text-center">
+            QUIERO PROBAR COACHBRAIN FÚTBOL
+          </a>
+          <p class="text-xs sm:text-sm text-gray-300 mt-4 font-medium flex flex-wrap justify-center items-center gap-x-2 gap-y-1 text-center">
+            <span>Acceso inmediato</span> · <span>100% online</span> · <span>7 días de garantía</span>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-xs text-gray-500 border-t border-gray-900">
+    <p>© CoachBrain Fútbol. Todos los derechos reservados.</p>
+  </footer>
+
+
+  <!-- ==========================================
+       POPUP / MODAL DE UPSELL DEL PLAN BÁSICO A US$ 10,99
+  =========================================== -->
+  <div id="upsell-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden opacity-0 transition-opacity duration-300">
+    
+    <div class="glass-card-accent max-w-lg w-full rounded-3xl p-6 sm:p-8 border-2 border-gold-500 relative shadow-glow-gold text-center transform scale-95 transition-transform duration-300" id="upsell-modal-card">
+      
+      <!-- Close Button (X) -->
+      <button onclick="closeUpsellModal()" aria-label="Cerrar" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold w-8 h-8 rounded-full bg-gray-900/80 border border-gray-700 flex items-center justify-center transition">
+        ✕
+      </button>
+
+      <!-- Exclusive Offer Badge -->
+      <div class="inline-block bg-gradient-to-r from-gold-400 via-amber-500 to-gold-500 text-gray-950 font-black text-[10px] sm:text-xs uppercase px-3.5 py-1 rounded-full shadow-md mb-4">
+        ¡ESPERA! OFERTA EXCLUSIVA DE ÚLTIMA HORA
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl font-black text-white mb-2 leading-tight">
+        ¡Llévale el PLAN COMPLETO por solo US$ 10,99!
+      </h2>
+
+      <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-5">
+        En lugar de pagar <span class="line-through text-gray-400">US$ 17,99</span> por el Plan Completo, aprovecha esta oportunidad única de añadir los <strong class="text-gold-400">3 Bonos Exclusivos</strong> con un descuento de <strong class="text-brand-400">US$ 7,00 OFF</strong>.
+      </p>
+
+      <!-- Included Bonuses Checklist -->
+      <div class="bg-gray-950/90 rounded-2xl p-4 border border-gold-500/30 text-left mb-6 space-y-2 text-xs">
+        <p class="font-extrabold text-gold-400 uppercase tracking-wider mb-2 text-[11px]">Tu Plan Completo incluye hoy:</p>
+        <p class="flex items-center gap-2 text-gray-200"><span class="text-brand-400 font-bold">✓</span> Acceso completo a CoachBrain Fútbol</p>
+        <p class="flex items-center gap-2 text-gray-200"><span class="text-gold-400 font-bold">✓</span> Bono 1 — Guía de Inicio Rápido</p>
+        <p class="flex items-center gap-2 text-gray-200"><span class="text-gold-400 font-bold">✓</span> Bono 2 — Mapa de Objetivos por Edad y Nivel</p>
+        <p class="flex items-center gap-2 text-gray-200"><span class="text-gold-400 font-bold">✓</span> Bono 3 — Kit de Adaptación para Días Complicados</p>
+        <p class="flex items-center gap-2 text-gray-200"><span class="text-brand-400 font-bold">✓</span> Garantía incondicional de 7 días</p>
+      </div>
+
+      <div class="mb-6">
+        <span class="text-xs text-gray-400 block mb-1">Precio especial upgrade:</span>
+        <span class="text-4xl sm:text-5xl font-black gradient-text-gold">US$ 10,99</span>
+        <span class="text-xs font-bold text-amber-400 block uppercase mt-1">PAGO ÚNICO</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="space-y-3">
+        <!-- Upgrade Button -->
+        <a href="#" class="w-full min-h-[52px] inline-flex items-center justify-center px-6 py-4 text-sm sm:text-base font-black text-gray-950 bg-gradient-to-r from-gold-400 via-amber-400 to-gold-500 rounded-xl shadow-glow-gold hover:opacity-95 active:scale-95 transition uppercase tracking-wider text-center">
+          SÍ, QUIERO EL PLAN COMPLETO POR US$ 10,99
+        </a>
+        
+        <!-- Refuse upgrade button (Proceeds to basic plan checkout) -->
+        <a href="#" class="block text-xs text-gray-400 hover:text-gray-200 underline pt-2 transition">
+          No gracias, continuar únicamente con el Plan Básico por US$ 7,99
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- JavaScript for Timer, Touch Carousel, Mobile Sticky CTA, and Upsell Modal -->
+  <script>
+    // 15-Minute Countdown Timer
+    let totalSeconds = 15 * 60;
+    const minElem = document.getElementById('timer-minutes');
+    const secElem = document.getElementById('timer-seconds');
+
+    function updateTimer() {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      minElem.textContent = minutes < 10 ? '0' + minutes : minutes;
+      secElem.textContent = seconds < 10 ? '0' + seconds : seconds;
+
+      if (totalSeconds > 0) {
+        totalSeconds--;
+      } else {
+        clearInterval(timerInterval);
+      }
+    }
+    const timerInterval = setInterval(updateTimer, 1000);
+
+    // Carousel state & Touch Swipe logic
+    let currentSlide = 0;
+    const slidesContainer = document.getElementById('carousel-slides');
+    const totalSlides = 5;
+    const dots = document.querySelectorAll('#carousel-dots button');
+    const viewport = document.getElementById('carousel-viewport');
+
+    function updateCarousel() {
+      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.className = 'w-6 h-3 rounded-full bg-brand-500 transition-all';
+        } else {
+          dot.className = 'w-3 h-3 rounded-full bg-gray-600 transition-all';
+        }
+      });
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    document.getElementById('carousel-next').addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    });
+
+    document.getElementById('carousel-prev').addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+    // Touch Swipe Gestures for Mobile
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+
+    viewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      currentX = e.touches[0].clientX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', () => {
+      if (!isSwiping) return;
+      const diffX = startX - currentX;
+      if (Math.abs(diffX) > 40 && currentX !== 0) {
+        if (diffX > 0) {
+          currentSlide = (currentSlide + 1) % totalSlides;
+        } else {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        }
+        updateCarousel();
+      }
+      isSwiping = false;
+      startX = 0;
+      currentX = 0;
+    });
+
+
+
+    // Upsell Modal Logic
+    const upsellModal = document.getElementById('upsell-modal');
+    const upsellCard = document.getElementById('upsell-modal-card');
+
+    function openUpsellModal() {
+      upsellModal.classList.remove('hidden');
+      setTimeout(() => {
+        upsellModal.classList.remove('opacity-0');
+        upsellCard.classList.remove('scale-95');
+        upsellCard.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeUpsellModal() {
+      upsellModal.classList.add('opacity-0');
+      upsellCard.classList.remove('scale-100');
+      upsellCard.classList.add('scale-95');
+      setTimeout(() => {
+        upsellModal.classList.add('hidden');
+      }, 300);
+    }
+  </script>
+</body>
+</html>
